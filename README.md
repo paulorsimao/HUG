@@ -16,7 +16,7 @@ https://github.com/rubensscotti <br>
 https://github.com/stephan-anthony <br>
 
 ### Modelo Físico:
-Imóvel, Cliente, Sinistro, Apólice, Vistoria, Histórico, Mobilia, Corretor, CorretoraSeguros
+Imóvel, Cliente, Sinistro, Apólice, Vistoria, Histórico, Mobília, Corretor <br>
 Utilizado https://dbdiagram.io/<br>
 Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Imagem</code>

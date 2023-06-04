@@ -1,0 +1,72 @@
+CREATE TABLE Imovel (
+    id_imovel SERIAL  PRIMARY KEY,
+    endereco VARCHAR(100),
+    tipo_imovel int,
+    valor numeric(15, 2)
+);
+
+
+CREATE TABLE Cliente (
+    id_cliente SERIAL  PRIMARY KEY,
+    nome VARCHAR(100),
+    cpf VARCHAR(14),
+    email VARCHAR(100),
+    telefone VARCHAR(20)
+);
+
+
+CREATE TABLE Sinistro (
+    id_sinistro SERIAL  PRIMARY KEY,
+    id_imovel INT,
+    descricao VARCHAR(500),
+    data DATE,
+    valor numeric(15, 2),
+    FOREIGN KEY (id_imovel) REFERENCES Imovel(id_imovel)
+);
+
+
+CREATE TABLE Apolice (
+    id_apolice SERIAL  PRIMARY KEY,
+    id_cliente INT,
+    id_imovel INT,
+    data DATE,
+    valor numeric(15, 2),
+    FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
+    FOREIGN KEY (id_imovel) REFERENCES Imovel(id_imovel)
+);
+
+
+CREATE TABLE Vistoria (
+    id_vistoria SERIAL  PRIMARY KEY,
+    id_imovel INT,
+    data_vistoria DATE,
+    descricao VARCHAR(500),
+    FOREIGN KEY (id_imovel) REFERENCES Imovel(id_imovel)
+);
+
+
+CREATE TABLE Historico (
+    id_historico SERIAL  PRIMARY KEY,
+    tabela VARCHAR(50),
+    descricao VARCHAR(500),
+    data DATE,
+);
+
+CREATE TABLE Mobilia (
+    id_mobilia INT PRIMARY KEY,
+    id_imovel INT,
+	tipo_mobilia INT, 
+    descricao VARCHAR(500),
+    valor numeric(15, 2),
+    FOREIGN KEY (id_imovel) REFERENCES Imovel(id_imovel)
+);
+
+
+CREATE TABLE Corretor (
+    id_corretor INT PRIMARY KEY,
+    nome VARCHAR(100),
+    cpf VARCHAR(14),
+	email VARCHAR(100),
+	salario numeric(15, 2),
+    telefone VARCHAR(20)
+);

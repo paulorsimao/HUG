@@ -1,21 +1,21 @@
-## Projeto Sistema de Seguros de Imóveis <...>
-## HUG - House Unforeseens Guardian
+## Projeto Sistema de Seguros de Imóveis
+# HUG - House Unforeseens Guardian
 
-<div align="center" style="display: inline-block; border-radius: 50%;">
-  <img src="public/logo.jpg" alt="Logo" style="border-radius: 50%;">
+<div align="center">
+  <img src="public/logo.jpg" alt="Logo">
 </div>
 
 ### Grupo A
 
 ### Integrantes:
-https://github.com/arthurdelucahonorato <br>
-https://github.com/brunapperch <br>
-https://github.com/gmdarabas <br>
-https://github.com/guilhermebp030504 <br>
-https://github.com/paulorsimao <br>
-https://github.com/renatoribascampos <br>
-https://github.com/rubensscotti <br>
-https://github.com/stephan-anthony <br>
+* [Arthur de Luca Honorato](https://github.com/arthurdelucahonorato)
+* [Bruna Pacheco Peruch](https://github.com/brunapperch)
+* [Guilherme Brito Pizzollo](https://github.com/guilhermebp030504)
+* [Guilherme Machado Darabas](https://github.com/gmdarabas)
+* [Paulo Roberto Simão](https://github.com/paulorsimao)
+* [Renato Ribas Campos](https://github.com/renatoribascampos)
+* [Rubens Scotti Junior](https://github.com/rubensscotti)
+* [Stephan  Anthony  Marques](https://github.com/stephan-anthony)
 
 ### Modelo Físico:
 Imóvel, Cliente, Sinistro, Apólice, Vistoria, Histórico, Mobília, Corretor <br>

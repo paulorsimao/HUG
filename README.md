@@ -1,8 +1,8 @@
-## Projeto Sistema de Seguros de Imóveis <...>
-## HUG - House Unforeseens Guardian
+## Projeto Sistema de Seguros de Imóveis
+# HUG - House Unforeseens Guardian
 
-<div align="center" style="display: inline-block; border-radius: 50%;">
-  <img src="public/logo.jpg" alt="Logo" style="border-radius: 50%;">
+<div align="center">
+  <img src="public/logo.jpg" alt="Logo">
 </div>
 
 ### Grupo A

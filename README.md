@@ -27,7 +27,7 @@ Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Excel ou tabela do Github (markdown)</code>
 
 ### Scripts DDL Criação do Database:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
+Banco de dados utilizado PostegresSQL versão 14.<br>
 <code>https://github.com/paulorsimao/HUG/blob/main/Criação%20das%20tabelas.txt</code>
 
 ### Scripts Popula tabelas:

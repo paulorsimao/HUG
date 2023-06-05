@@ -1,5 +1,5 @@
 -- Tabela "Cliente"
-CREATE TABLE Cliente (
+CREATE TABLE cliente (
   id_cliente INT PRIMARY KEY,
   nome VARCHAR(255),
   endereco VARCHAR(255),

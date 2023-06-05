@@ -1,5 +1,5 @@
 -- Tabela "Imóvel"
-CREATE TABLE Imovel (
+CREATE TABLE imovel (
   id_imovel INT PRIMARY KEY,
   endereco VARCHAR(255),
   tipo VARCHAR(255),

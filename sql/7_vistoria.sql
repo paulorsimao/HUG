@@ -4,5 +4,5 @@ CREATE TABLE Vistoria (
   id_imovel INT,
   data_vistoria DATE,
   descricao TEXT,
-  FOREIGN KEY (id_imovel) REFERENCES Imovel(id_imovel)
+  FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
 );

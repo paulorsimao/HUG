@@ -9,12 +9,16 @@ CREATE TYPE public.tipo_imovel AS ENUM (
 
 CREATE TABLE imovel (
     id_imovel SERIAL PRIMARY KEY,
-    id_endereco INT,
     tipo public.tipo_imovel NOT NULL,
     area DECIMAL(10,2),
     valor DECIMAL(10,2),
     descricao VARCHAR(255),
     id_seguradora INT,
-    FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco),
+    rua VARCHAR(100),
+    numero INT,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    cep VARCHAR(10),
     FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora)
 );

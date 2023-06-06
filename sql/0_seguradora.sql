@@ -6,6 +6,10 @@ CREATE TABLE seguradora (
     razao_social varchar(100),
     telefone VARCHAR(20),
     email VARCHAR(255),
-    id_endereco INT,
-    FOREIGN KEY (id_endereco) REFERENCES endereco(id_endereco)
+    rua VARCHAR(100),
+    numero INT,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    cep VARCHAR(10)
 );

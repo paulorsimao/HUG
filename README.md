@@ -28,7 +28,7 @@ Arquivo fonte: <code>link pro arquivo</code><br>
 
 ### Scripts DDL Criação do Database:
 Banco de dados utilizado PostegresSQL versão 14.<br>
-<code>https://github.com/paulorsimao/HUG/blob/main/Criação%20das%20tabelas.txt</code>
+<code>(https://github.com/paulorsimao/HUG/tree/5e37a9049e2bf3226c988ccddbefcc7a31cf9b61/sql)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>

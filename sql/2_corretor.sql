@@ -1,8 +1,5 @@
 -- Tabela "Corretor"
-CREATE TABLE Corretor (
-  id_corretor INT PRIMARY KEY,
-  nome VARCHAR(255),
-  endereco VARCHAR(255),
-  telefone VARCHAR(20),
-  email VARCHAR(255)
+CREATE TABLE corretor (
+    id_corretor SERIAL PRIMARY KEY,
+    FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
 );

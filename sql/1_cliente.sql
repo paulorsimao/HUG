@@ -1,8 +1,6 @@
 -- Tabela "Cliente"
 CREATE TABLE cliente (
-  id_cliente INT PRIMARY KEY,
-  nome VARCHAR(255),
-  endereco VARCHAR(255),
-  telefone VARCHAR(20),
-  email VARCHAR(255)
+    id_cliente serial PRIMARY KEY,
+    id_pessoa INT
+    FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
 );

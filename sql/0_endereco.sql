@@ -1,6 +1,6 @@
 -- Tabela "Cliente"
 CREATE TABLE endereco (
-    id SERIAL PRIMARY KEY,
+    id_endereco SERIAL PRIMARY KEY,
     rua VARCHAR(100),
     numero INT,
     bairro VARCHAR(50),

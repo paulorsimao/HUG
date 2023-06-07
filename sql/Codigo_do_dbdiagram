@@ -1,0 +1,118 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+TABLE seguradora {
+    id_seguradora SERIAL [PRIMARY KEY]
+    nome VARCHAR(255)
+    cnpj CHAR(18) unique [NOT NULL]
+    razao_social varchar(100)
+    telefone VARCHAR(20)
+    email VARCHAR(255)
+    rua VARCHAR(100)
+    numero INT
+    bairro VARCHAR(50)
+    cidade VARCHAR(50)
+    estado VARCHAR(50)
+    cep VARCHAR(10)
+    complemento VARCHAR(256)
+}
+
+TABLE pessoa {
+    id_pessoa SERIAL [PRIMARY KEY]
+    nome VARCHAR(255)
+    cpf varchar(14) unique [NOT NULL]// tem cpf igual
+    telefone VARCHAR(20)
+    email VARCHAR(255)
+    data_nasc DATE
+    rua VARCHAR(100)
+    numero INT
+    bairro VARCHAR(50)
+    cidade VARCHAR(50)
+    estado VARCHAR(50)
+    cep VARCHAR(10)
+    complemento VARCHAR(256)
+}
+
+TABLE imovel {
+    id_imovel SERIAL  [PRIMARY KEY]
+    id_cliente int 
+    id_seguradora int //fk_imovel_seguradora
+    tipo_imovel int
+    valor numeric(15, 2)
+    rua VARCHAR(100)
+    numero INT
+    bairro VARCHAR(50)
+    cidade VARCHAR(50)
+    estado VARCHAR(50)
+    cep VARCHAR(10)
+    complemento VARCHAR(256)
+}
+
+TABLE cliente {
+  id_cliente SERIAL  [PRIMARY KEY]
+  id_pessoa int //fk_pessoa_cliente
+}
+
+
+TABLE sinistro {
+    id_sinistro SERIAL  [PRIMARY KEY]
+    id_imovel INT //fk_sinistro_imovel
+    descricao TEXT
+    data_ocorrencia DATE
+    valor_prejuizo numeric(15, 2)
+    
+}
+
+
+TABLE apolice {
+    id_apolice SERIAL [PRIMARY KEY]
+    id_cliente INT //fk_apolice_cliente
+    id_imovel INT //fk_apolice_imovel
+    data_inicio date
+    data_fim date
+    valor numeric(15, 2)
+}
+
+
+TABLE vistoria {
+    id_vistoria SERIAL  [PRIMARY KEY]
+    id_imovel INT //fk_vistoria_imovel
+    data_vistoria DATE
+    descricao VARCHAR(500)
+}
+
+
+TABLE historico {
+    id_historico SERIAL  [PRIMARY KEY]
+    id_imovel int //fk_historico_imovel
+    id_sinistro int //fk_historico_sinistro
+    id_apolice int //fk_historico_apolice
+    tabela VARCHAR(50)
+    descricao VARCHAR(500)
+    data DATE
+}
+
+TABLE mobilia {
+    id_mobilia INT [PRIMARY KEY]
+    id_imovel INT //fk_mobilia_imovel
+	  tipo_mobilia INT
+    descricao TEXT
+    valor numeric(15, 2)
+}
+
+TABLE corretor {
+  id_seguradora SERIAL //fk_corretor_seguradora
+  id_pessoa int //fk_pessoa_corretor
+}
+
+Ref fk_pessoa_cliente: pessoa.id_pessoa > cliente.id_pessoa
+Ref fk_corretor_seguradora : corretor.id_seguradora < seguradora.id_seguradora
+Ref fk_pessoa_corretor : pessoa.id_pessoa > corretor.id_pessoa
+Ref fk_imovel_seguradora: imovel.id_seguradora - seguradora.id_seguradora
+Ref fk_mobilia_imovel: mobilia.id_imovel > imovel.id_imovel
+Ref fk_apolice_cliente : apolice.id_cliente > cliente.id_cliente
+Ref fk_apolice_imovel : apolice.id_imovel - imovel.id_imovel
+Ref fk_sinistro_imovel: sinistro.id_imovel > imovel.id_imovel
+Ref fk_vistoria_imovel: vistoria.id_imovel > imovel.id_imovel
+Ref fk_historico_imovel: historico.id_imovel - imovel.id_imovel
+Ref fk_historico_apolice : historico.id_apolice < apolice.id_apolice
+Ref fk_historico_sinistro : historico.id_sinistro < sinistro.id_sinistro

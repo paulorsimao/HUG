@@ -18,7 +18,6 @@
 * [Stephan  Anthony  Marques](https://github.com/stephan-anthony)
 
 ### Modelo Físico:
-Imóvel, Cliente, Sinistro, Apólice, Vistoria, Histórico, Mobília, Corretor <br>
 Utilizado https://dbdiagram.io/<br>
 Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Imagem</code>
@@ -27,8 +26,7 @@ Arquivo fonte: <code>link pro arquivo</code><br>
 <code>Excel ou tabela do Github (markdown)</code>
 
 ### Scripts DDL Criação do Database:
-Banco de dados utilizado PostegresSQL versão 14.<br>
-<code>(https://github.com/paulorsimao/HUG/tree/5e37a9049e2bf3226c988ccddbefcc7a31cf9b61/sql)</code>
+<code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/5e37a9049e2bf3226c988ccddbefcc7a31cf9b61/sql)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
@@ -38,5 +36,5 @@ Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
 <code>1 arquivo SQL por objeto</code>
   
 ### Código do sistema:
-JavaScript, PHP, PostegresSQL <br>
+JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>
 <code>código fonte da aplicação</code>

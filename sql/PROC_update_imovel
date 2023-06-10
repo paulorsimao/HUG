@@ -14,14 +14,7 @@ CREATE PROCEDURE sp_UpdateImovel
     @cep VARCHAR(10)
 AS
 BEGIN
-    -- Salvar os dados atuais do imóvel no histórico
-    INSERT INTO historico_imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, rua, numero, bairro, cidade, estado, cep)
-    SELECT id_imovel, tipo, area, valor, descricao, id_seguradora, rua, numero, bairro, cidade, estado, cep
-    FROM imovel
-    WHERE id_imovel = @id_imovel;
-
-    -- Atualizar os dados do imóvel na tabela principal
-    UPDATE imovel
+     UPDATE imovel
     SET tipo = @tipo,
         area = @area,
         valor = @valor,

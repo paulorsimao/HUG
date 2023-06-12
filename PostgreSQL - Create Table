@@ -1,1 +1,123 @@
 
+-- Tabela "pessoa"
+CREATE TABLE pessoa (
+    id_pessoa SERIAL PRIMARY KEY,
+    nome VARCHAR(255),
+    telefone VARCHAR(20),
+    email VARCHAR(255),
+    rua VARCHAR(100),
+    numero INT,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    cep VARCHAR(10)
+);
+
+-- Tabela "seguradora"
+CREATE TABLE seguradora (
+    id_seguradora SERIAL PRIMARY KEY,
+    nome VARCHAR(255),
+    cnpj CHAR(14) UNIQUE NOT NULL,
+    razao_social varchar(100),
+    telefone VARCHAR(20),
+    email VARCHAR(255),
+    rua VARCHAR(100),
+    numero INT,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    cep VARCHAR(10)
+);
+
+
+-- Tabela "Cliente"
+CREATE TABLE cliente (
+    id_cliente SERIAL PRIMARY KEY,
+    id_pessoa INT,
+    FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa)
+);
+
+-- Tabela "Corretor"
+CREATE TABLE corretor (
+    id_seguradora INT,
+    id_pessoa INT,
+    FOREIGN KEY (id_pessoa) REFERENCES pessoa(id_pessoa),
+    FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora)
+);
+
+ALTER TABLE corretor ADD PRIMARY KEY (id_seguradora, id_pessoa);
+
+-- Tabela "Imóvel"
+CREATE TYPE public.tipo_imovel AS ENUM (
+    'Casa',
+    'Apartamento',
+    'Terreno',
+    'Sala Comercial',
+    'Depósito'
+);
+
+CREATE TABLE imovel (
+    id_imovel SERIAL PRIMARY KEY,
+    tipo public.tipo_imovel NOT NULL,
+    area DECIMAL(10,2),
+    valor DECIMAL(10,2),
+    descricao VARCHAR(255),
+    id_seguradora INT,
+    rua VARCHAR(100),
+    numero INT,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado VARCHAR(50),
+    cep VARCHAR(10),
+    FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora)
+);
+
+-- Tabela "Mobília"
+CREATE TABLE mobilia (
+    id_mobilia SERIAL PRIMARY KEY,
+    id_imovel INT,
+    nome VARCHAR(255),
+    valor DECIMAL(10,2),
+    FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
+);
+
+-- Tabela "Apólice"
+CREATE TABLE apolice (
+    id_apolice SERIAL PRIMARY KEY,
+    id_imovel INT,
+    id_cliente INT,
+    data_inicio DATE,
+    data_fim DATE,
+    valor_cobertura DECIMAL(10,2),
+    FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
+);
+
+-- Tabela "Sinistro"
+CREATE TABLE sinistro (
+    id_sinistro INT PRIMARY KEY,
+    id_imovel INT,
+    data_ocorrencia DATE,
+    descricao TEXT,
+    valor_prejuizo DECIMAL(10,2),
+    FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
+);
+
+-- Tabela "Vistoria"
+CREATE TABLE Vistoria (
+  id_vistoria INT PRIMARY KEY,
+  id_imovel INT,
+  data_vistoria DATE,
+  descricao TEXT,
+  FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
+);
+
+-- Tabela "Histórico"
+CREATE TABLE historico (
+  id_historico INT PRIMARY KEY,
+  id_imovel INT,
+  data_atualizacao DATE,
+  descricao TEXT,
+  FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
+);
+

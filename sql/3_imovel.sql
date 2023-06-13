@@ -9,7 +9,6 @@ CREATE TYPE public.tipo_imovel AS ENUM (
 
 CREATE TABLE imovel (
     id_imovel SERIAL PRIMARY KEY,
-    id_cliente int,
     tipo public.tipo_imovel NOT NULL,
     area DECIMAL(10,2),
     valor DECIMAL(10,2),

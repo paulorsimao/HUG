@@ -26,7 +26,7 @@ Arquivo fonte: <code>https://dbdiagram.io/d/6488f767722eb77494e9558d</code><br>
 <code>Excel ou tabela do Github (markdown)</code>
 
 ### Scripts DDL Criação do Database:
-<code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/5e37a9049e2bf3226c988ccddbefcc7a31cf9b61/sql)</code>
+<code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/5e37a9049e2bf3226c988ccddbefcc7a31cf9b61/sql](https://github.com/paulorsimao/HUG/tree/main/sql)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado SQL Server versão 2022 - Azure.<br>

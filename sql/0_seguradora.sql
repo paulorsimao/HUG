@@ -1,9 +1,9 @@
 -- Tabela "seguradora"
 CREATE TABLE seguradora (
     id_seguradora SERIAL PRIMARY KEY,
-    nome VARCHAR(255),
-    cnpj CHAR(14) UNIQUE NOT NULL,
-    razao_social varchar(100),
+    nome VARCHAR(255) NOT NULL,
+    cnpj CHAR(18) UNIQUE NOT NULL,
+    razao_social varchar(100) NOT NULL,
     telefone VARCHAR(20),
     email VARCHAR(255),
     rua VARCHAR(100),

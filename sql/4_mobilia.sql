@@ -1,8 +1,8 @@
 -- Tabela "Mobília"
 CREATE TABLE mobilia (
     id_mobilia SERIAL PRIMARY KEY,
-    id_imovel INT,
-    nome VARCHAR(255),
-    valor DECIMAL(10,2),
+    id_imovel INT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
 );

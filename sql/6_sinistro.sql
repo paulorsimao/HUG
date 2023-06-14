@@ -1,6 +1,6 @@
 -- Tabela "Sinistro"
 CREATE TABLE sinistro (
-    id_sinistro INT PRIMARY KEY,
+    id_sinistro SERIAL PRIMARY KEY,
     id_imovel INT NOT NULL,
     data_ocorrencia DATE NOT NULL,
     descricao TEXT NOT NULL,

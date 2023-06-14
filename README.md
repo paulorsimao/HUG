@@ -33,7 +33,7 @@ Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
 <code>1 arquivo SQL por objeto</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
-<code>1 arquivo SQL por objeto</code>
+<code>[Ver Objetos](https://github.com/paulorsimao/HUG/tree/main/sql/objects)</code>
   
 ### Código do sistema:
 JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>

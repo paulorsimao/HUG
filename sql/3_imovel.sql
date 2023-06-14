@@ -10,10 +10,10 @@ CREATE TYPE public.tipo_imovel AS ENUM (
 CREATE TABLE imovel (
     id_imovel SERIAL PRIMARY KEY,
     tipo public.tipo_imovel NOT NULL,
-    area DECIMAL(10,2),
-    valor DECIMAL(10,2),
+    area DECIMAL(10,2) NOT NULL,
+    valor DECIMAL(15,2) NOT NULL,
     descricao VARCHAR(255),
-    id_seguradora INT,
+    id_seguradora INT NOT NULL,
     rua VARCHAR(100),
     numero INT,
     bairro VARCHAR(50),

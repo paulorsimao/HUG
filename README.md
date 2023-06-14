@@ -23,7 +23,7 @@ Arquivo fonte: <code>https://dbdiagram.io/d/6488f767722eb77494e9558d</code><br>
 <code>Imagem</code>
   
 ### Dicionário de Dados:
-<code>Excel ou tabela do Github (markdown)</code>
+<code>[Excel](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.xlsx) ou [Tabela do Github (markdown)](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.md)</code>
 
 ### Scripts DDL Criação do Database:
 <code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/main/sql)</code>

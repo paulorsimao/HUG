@@ -18,8 +18,7 @@
 * [Stephan  Anthony  Marques](https://github.com/stephan-anthony)
 
 ### Modelo Físico:
-Utilizado https://dbdiagram.io/<br>
-Arquivo fonte: <code>https://dbdiagram.io/d/6488f767722eb77494e9558d</code><br>
+<code>[Arquivo Fonte](https://dbdiagram.io/d/6488f767722eb77494e9558d)</code><br>
 <code>Imagem</code>
   
 ### Dicionário de Dados:

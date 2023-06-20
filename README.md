@@ -19,7 +19,10 @@
 
 ### Modelo Físico:
 <code>[Arquivo Fonte](https://dbdiagram.io/d/6488f767722eb77494e9558d)</code><br>
-<code>Imagem</code>
+<div align="center">
+  <img src="public/Modelo.png" alt="Modelo">
+</div>
+
   
 ### Dicionário de Dados:
 <code>[Excel](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.xlsx) ou [Tabela do Github (markdown)](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.md)</code>

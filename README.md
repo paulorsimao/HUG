@@ -39,8 +39,13 @@ JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>
 <code>código fonte da aplicação</code>
 
 ### Perguntas de negócio:
-1 - Quantos clientes terão suas apólices vencidas no período de 6 meses a partir da data atual, das seguradoras do estado de SP, RS e PR?
+1 - Quantos clientes terão suas apólices vencidas no período de 6 meses a partir da data atual, das seguradoras do estado de SP, RS e PR? <br>
+
 2 - Liste nome e valor das mobílias dos imóveis, do tipo apartamento, que ultrapassam o valor de 500K reais com apólices criadas no mês atual?
+<br>
+
 3 - liste os imóveis e a quantidade respectiva de mobílias por imóvel que cada cliente tem. Os clientes devem ter entre 30 e 40 anos e residir no estado de SC.
+<br>
+
 4 - Informar o top 10 dos valores totais de prejuizo gerado por sinistros, agrupados por imóvel e trazendo as informações como, nome, cpf,
-data de nascimento e telefone da pessoa responsável e o corretor do imóvel. 
+data de nascimento e telefone da pessoa responsável e o corretor do imóvel.

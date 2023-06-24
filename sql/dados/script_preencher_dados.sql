@@ -135,3 +135,52 @@ INSERT INTO imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, id_c
     (38, 'Apartamento', 90.45, 200000.00, 'Apartamento mobiliado próximo ao centro', 2, 8, 'Rua H', 1819, 'Bairro S', 'Porto Alegre', 'RS', '08000-000'),
     (39, 'Terreno', 600.00, 380000.00, 'Terreno com projeto aprovado para construção', 3, 9, 'Rua I', 2021, 'Bairro R', 'Florianópolis', 'SC', '09000-000'),
     (40, 'Casa', 220.75, 450000.00, 'Casa com ampla área verde', 4, 10, 'Rua J', 2223, 'Bairro Q', 'Goiânia', 'GO', '10000-000');
+
+INSERT INTO public.apolice (id_imovel, id_cliente, data_inicio, data_fim, valor_cobertura)
+VALUES
+    (1, 1, '2023-01-01', '2023-12-31', 1000.00),
+    (2, 2, '2023-02-01', '2023-12-31', 1500.00),
+    (3, 3, '2023-03-01', '2023-12-31', 2000.00),
+    (4, 4, '2023-04-01', '2023-12-31', 1200.00),
+    (5, 5, '2023-05-01', '2023-12-31', 1800.00),
+    (6, 6, '2023-06-01', '2023-12-31', 2500.00),
+    (7, 7, '2023-07-01', '2023-12-31', 3000.00),
+    (8, 8, '2023-08-01', '2023-12-31', 2200.00),
+    (9, 9, '2023-09-01', '2023-12-31', 2700.00),
+    (10, 10, '2023-10-01', '2023-12-31', 3500.00);
+
+INSERT INTO public.mobilia (id_imovel, nome, valor) VALUES
+(1, 'Sofá', 500.00),
+(1, 'Cama de casal', 800.00),
+(2, 'Mesa de jantar', 300.00),
+(2, 'Cadeiras', 200.00),
+(3, 'Guarda-roupa', 600.00),
+(4, 'Escrivaninha', 250.00),
+(4, 'Cadeira de escritório', 150.00),
+(5, 'Cama de solteiro', 400.00),
+(5, 'Criado-mudo', 100.00),
+(5, 'Estante', 350.00);
+
+INSERT INTO public.sinistro (id_imovel, data_ocorrencia, descricao, valor_prejuizo) VALUES
+(1, '2023-05-01', 'Inundação devido a forte chuva', 5000.00),
+(1, '2023-06-10', 'Incêndio na cozinha', 10000.00),
+(2, '2023-04-15', 'Roubo de pertences', 2000.00),
+(2, '2023-06-18', 'Danos causados por vendaval', 8000.00),
+(3, '2023-03-05', 'Vazamento de gás', 3000.00),
+(4, '2023-02-20', 'Inundação no porão', 4000.00),
+(4, '2023-06-01', 'Roubo de equipamentos eletrônicos', 6000.00),
+(5, '2023-05-15', 'Incêndio no quarto', 7000.00),
+(5, '2023-06-12', 'Rachaduras nas paredes', 1500.00),
+(5, '2023-06-20', 'Furto de objetos de valor', 2500.00);
+
+INSERT INTO public.vistoria (id_imovel, data_vistoria, descricao) VALUES
+(1, '2023-05-10', 'Vistoria de rotina'),
+(1, '2023-06-20', 'Vistoria de reparo'),
+(2, '2023-04-25', 'Vistoria de inspeção'),
+(2, '2023-06-15', 'Vistoria de manutenção'),
+(3, '2023-03-10', 'Vistoria de avaliação'),
+(3, '2023-06-05', 'Vistoria de renovação'),
+(4, '2023-02-25', 'Vistoria de reforma'),
+(4, '2023-06-10', 'Vistoria de segurança'),
+(5, '2023-05-20', 'Vistoria de mudança'),
+(5, '2023-06-22', 'Vistoria de limpeza');

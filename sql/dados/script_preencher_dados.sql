@@ -122,9 +122,7 @@ INSERT INTO imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, id_c
     (27, 'Casa', 195.90, 340000.00, 'Casa com espaço gourmet', 3, 27, 'Rua 1', 5657, 'Bairro Z', 'Florianópolis', 'SC', '27000-000'),
     (28, 'Casa', 175.25, 310000.00, 'Casa com ampla área verde', 4, 28, 'Rua 2', 5859, 'Bairro Y', 'Goiânia', 'GO', '28000-000'),
     (29, 'Apartamento', 85.60, 200000.00, 'Apartamento com segurança 24 horas', 5, 29, 'Rua 3', 6061, 'Bairro X', 'Manaus', 'AM', '29000-000'),
-    (30, 'Casa', 205.40, 360000.00, 'Casa com piscina e churrasqueira', 6, 30, 'Rua 4', 6263, 'Bairro W', 'Belém', 'PA', '30000-000');
-
-INSERT INTO imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, id_cliente, rua, numero, bairro, cidade, estado, cep) VALUES
+    (30, 'Casa', 205.40, 360000.00, 'Casa com piscina e churrasqueira', 6, 30, 'Rua 4', 6263, 'Bairro W', 'Belém', 'PA', '30000-000'),
     (31, 'Casa', 150.50, 250000.00, 'Casa ampla com quintal espaçoso', 1, 1, 'Rua A', 123, 'Bairro X', 'São Paulo', 'SP', '01000-000'),
     (32, 'Apartamento', 80.75, 180000.00, 'Apartamento com vista para o mar', 2, 2, 'Rua B', 456, 'Bairro Y', 'Rio de Janeiro', 'RJ', '02000-000'),
     (33, 'Terreno', 500.00, 350000.00, 'Terreno com excelente localização', 3, 3, 'Rua C', 789, 'Bairro Z', 'Belo Horizonte', 'MG', '03000-000'),
@@ -135,3 +133,84 @@ INSERT INTO imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, id_c
     (38, 'Apartamento', 90.45, 200000.00, 'Apartamento mobiliado próximo ao centro', 2, 8, 'Rua H', 1819, 'Bairro S', 'Porto Alegre', 'RS', '08000-000'),
     (39, 'Terreno', 600.00, 380000.00, 'Terreno com projeto aprovado para construção', 3, 9, 'Rua I', 2021, 'Bairro R', 'Florianópolis', 'SC', '09000-000'),
     (40, 'Casa', 220.75, 450000.00, 'Casa com ampla área verde', 4, 10, 'Rua J', 2223, 'Bairro Q', 'Goiânia', 'GO', '10000-000');
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+INSERT INTO mobilia (id_imovel, nome, valor)
+SELECT
+    i.id_imovel,
+    (array['Sofá', 'Mesa de Jantar', 'Cama de Casal', 'Guarda-roupa', 'Cadeira', 'Televisão', 'Estante','Geladeira', 'Fogão'])[floor(random()*9) + 1],
+    (random()*100)::numeric(10,2)
+FROM
+    imovel i
+where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
+
+
+with valor_mobilia as(
+	select sum(valor) as soma_mobilia, id_imovel from mobilia group by id_imovel
+)
+INSERT INTO apolice (id_imovel, id_cliente, data_inicio, data_fim, valor_cobertura)
+SELECT
+    i.id_imovel,
+    i.id_cliente,
+    (CURRENT_DATE - random() * INTERVAL '365 days')::DATE AS data_inicio,  -- Data de início aleatória nos últimos 365 dias
+    (CURRENT_DATE - random() * INTERVAL '365 days' + INTERVAL '365 days')::DATE AS data_fim,  -- Data de término é de no máximo 365 dias após a data de início
+    i.valor + coalesce((select (random() * vm.soma_mobilia) from valor_mobilia vm where vm.id_imovel = i.id_imovel),0)
+FROM
+    imovel i
+
+INSERT INTO sinistro (id_imovel, data_ocorrencia, descricao, valor_prejuizo)
+SELECT
+    a.id_imovel,
+    date(a.data_inicio + trunc(random() * (a.data_fim - a.data_inicio)) * '1 day'::interval) AS data_ocorrencia,
+    'Descrição do sinistro' AS descricao,
+    (a.valor_cobertura * random())::DECIMAL(15, 2) AS valor_prejuizo
+FROM
+    apolice a
+    INNER JOIN imovel i ON a.id_imovel = i.id_imovel
+WHERE
+    random() < 0.25;
+

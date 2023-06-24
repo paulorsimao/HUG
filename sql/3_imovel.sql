@@ -14,11 +14,13 @@ CREATE TABLE imovel (
     valor DECIMAL(15,2) NOT NULL,
     descricao VARCHAR(255),
     id_seguradora INT NOT NULL,
+    id_cliente INT NOT NULL,
     rua VARCHAR(100),
     numero INT,
     bairro VARCHAR(50),
     cidade VARCHAR(50),
     estado VARCHAR(50),
     cep VARCHAR(10),
-    FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora)
+    FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora),
+    FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 );

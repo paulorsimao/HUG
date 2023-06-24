@@ -42,9 +42,27 @@ JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>
 <code>código fonte da aplicação</code>
 
 ### Perguntas de negócio:
-1 - Quantos clientes terão suas apólices vencidas no período de 6 meses a partir da data atual, das seguradoras do estado de SP, RS e PR? <br>
+1 - Quantos clientes terão suas apólices vencidas no período de 6 meses a partir da data atual, das seguradoras do estado de SP, RS e PR?
+```sql
+  select count(i.id_cliente), s.estado from apolice a 
+  left join imovel i on i.id_imovel = a.id_imovel 
+  left join seguradora s on s.id_seguradora = i.id_seguradora 
+  where a.data_fim between current_date and (current_date + interval '6 months')
+  and s.estado in ('SP', 'RS', 'PR')
+  group by s.estado;
+```
+<br>
 
 2 - Liste nome e valor das mobílias dos imóveis, do tipo apartamento, que ultrapassam o valor de 500K reais com apólices criadas no mês atual?
+```sql
+select id_mobilia, m.nome, m.valor from mobilia m 
+left join imovel i on i.id_imovel = m.id_imovel 
+where i.tipo = 'Apartamento'
+and i.valor > 500000
+and i.id_imovel in (
+	select a.id_imovel from apolice a where extract (month from a.data_inicio) = extract(month from current_date)
+)
+```
 <br>
 
 3 - liste os imóveis e a quantidade respectiva de mobílias por imóvel que cada cliente tem. Os clientes devem ter entre 30 e 40 anos e residir no estado de SC.

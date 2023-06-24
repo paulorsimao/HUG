@@ -24,3 +24,16 @@ CREATE TABLE imovel (
     FOREIGN KEY (id_seguradora) REFERENCES seguradora(id_seguradora),
     FOREIGN KEY (id_cliente) REFERENCES cliente(id_cliente)
 );
+
+ALTER TABLE public.imovel ALTER COLUMN descricao SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN rua SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN bairro SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN cidade SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN estado SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN cep SET DEFAULT '.';
+ALTER TABLE public.imovel ALTER COLUMN numero SET DEFAULT 0;
+ALTER TABLE public.imovel ALTER COLUMN area SET DEFAULT '0';
+ALTER TABLE public.imovel ALTER COLUMN id_seguradora SET DEFAULT 0;
+ALTER TABLE public.imovel ALTER COLUMN id_cliente SET DEFAULT 0;
+ALTER TABLE public.imovel ALTER COLUMN valor SET DEFAULT 0;
+ALTER TABLE public.imovel ALTER COLUMN tipo SET DEFAULT 'Casa';

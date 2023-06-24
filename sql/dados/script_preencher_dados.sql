@@ -134,6 +134,7 @@ INSERT INTO imovel (id_imovel, tipo, area, valor, descricao, id_seguradora, id_c
     (39, 'Terreno', 600.00, 380000.00, 'Terreno com projeto aprovado para construção', 3, 9, 'Rua I', 2021, 'Bairro R', 'Florianópolis', 'SC', '09000-000'),
     (40, 'Casa', 220.75, 450000.00, 'Casa com ampla área verde', 4, 10, 'Rua J', 2223, 'Bairro Q', 'Goiânia', 'GO', '10000-000');
 
+/* repete este insert 5x para inserir 5 mobilias em cada imovel*/
 INSERT INTO mobilia (id_imovel, nome, valor)
 SELECT
     i.id_imovel,
@@ -189,6 +190,7 @@ FROM
 where i.tipo in ('Casa', 'Apartamento', 'Sala Comercial') ;
 
 
+/* Inserido apolices considerando o valor do imovel e soma das mobilias */
 with valor_mobilia as(
 	select sum(valor) as soma_mobilia, id_imovel from mobilia group by id_imovel
 )
@@ -202,11 +204,14 @@ SELECT
 FROM
     imovel i
 
+/* insere sinistro considerando a data da apolice e o valor do imovel */
 INSERT INTO sinistro (id_imovel, data_ocorrencia, descricao, valor_prejuizo)
 SELECT
     a.id_imovel,
     date(a.data_inicio + trunc(random() * (a.data_fim - a.data_inicio)) * '1 day'::interval) AS data_ocorrencia,
-    'Descrição do sinistro' AS descricao,
+    (
+        array(['Inundação devido a forte chuva', 'Incêndio na cozinha', 'Roubo de pertences', 'Vazamento de gás', 'Roubo de equipamentos eletrônicos', 'Rachaduras nas paredes'])[floor(random()*9) + 1]
+    ) AS descricao,
     (a.valor_cobertura * random())::DECIMAL(15, 2) AS valor_prejuizo
 FROM
     apolice a
@@ -214,3 +219,14 @@ FROM
 WHERE
     random() < 0.25;
 
+INSERT INTO public.vistoria (id_imovel, data_vistoria, descricao) VALUES
+(1, '2023-05-10', 'Vistoria de rotina'),
+(1, '2023-06-20', 'Vistoria de reparo'),
+(2, '2023-04-25', 'Vistoria de inspeção'),
+(2, '2023-06-15', 'Vistoria de manutenção'),
+(3, '2023-03-10', 'Vistoria de avaliação'),
+(3, '2023-06-05', 'Vistoria de renovação'),
+(4, '2023-02-25', 'Vistoria de reforma'),
+(4, '2023-06-10', 'Vistoria de segurança'),
+(5, '2023-05-20', 'Vistoria de mudança'),
+(5, '2023-06-22', 'Vistoria de limpeza');

@@ -42,10 +42,10 @@ BEGIN
         'PRECISA INSERIR CORRETOR NA TABELA'::varchar,
         seg.id_seguradora ,
         seg.nome ,
-        a.qtd,
-        a.valor,
-        s.qtd,
-        s.valor
+        COALESCE(a.qtd, 0),
+        COALESCE(a.valor, 0),
+        COALESCE(s.qtd, 0),
+        COALESCE(s.valor, 0)
     FROM 
         imovel i
     LEFT JOIN cliente c ON c.id_cliente = i.id_cliente

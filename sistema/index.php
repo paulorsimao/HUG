@@ -10,38 +10,38 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="http://localhost:8000/index.php">HUG</a>
+    <a class="navbar-brand" href="http://localhost:8000/sistema/index.php">HUG</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link text-light" href="http://localhost:8000/index.php">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/imovel.php">Imóvel</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/imovel/imovel.php">Imóvel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/mobilia.php">Mobília</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Mobília</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/cliente.php">Cliente</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Cliente</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/apolice.php">Apólice</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Apólice</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/sinistro.php">Sinistro</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Sinistro</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/vistoria.php">Vistoria</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Vistoria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/corretor.php">Corretor</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Corretor</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="http://localhost:8000/historico.php">Histórico de operações</a>
+          <a class="nav-link text-light" href="http://localhost:8000/sistema/index.php">Histórico de operações</a>
         </li>
       </ul>
     </div>

@@ -1,6 +1,6 @@
 <?php
 //Dados do banco
-require_once 'postgres.php';
+require_once '../postgres.php';
 
 //UPDATE
 if (!empty($_POST)) {

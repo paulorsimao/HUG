@@ -1,25 +1,25 @@
 <?php
 //Dados do banco
-require_once 'postgres.php';
+require_once '../postgres.php';
 
 //INSERT
 if (!empty($_POST)) {
   try {
     // Obtém o valor enviado pelo formulário
-    $endereco    = $_POST['endereco'];
-    $tipo_imovel = $_POST['tipo_imovel'];
+    $descricao    = $_POST['descricao'];
+    $tipo        = $_POST['tipo'];
     $valor       = $_POST['valor'];
 
     // Prepara a query SQL para inserção
-    $sql = "INSERT INTO imovel (endereco, tipo_imovel, valor) VALUES (:endereco, :tipo_imovel, :valor)";
+    $sql = "INSERT INTO imovel (descricao, tipo, valor, id_seguradora, id_cliente) VALUES (:descricao, :tipo, :valor, 1, 1)";
 
     // Preparar a SQL (pdo)
     $stmt = $pdo->prepare($sql);
 
     // Definir/organizar os dados p/ SQL
     $dados = array(
-    ':endereco' => $endereco,
-    ':tipo_imovel' => $tipo_imovel,
+    ':descricao' => $descricao,
+    ':tipo' => $tipo,
     ':valor' => $valor
     );
 

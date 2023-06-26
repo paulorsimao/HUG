@@ -1,18 +1,18 @@
 <?php
 //Dados do banco
-require_once 'postgres.php';
+require_once '../postgres.php';
 
 //UPDATE
 if (!empty($_POST)) {
     try {
       // Obtém o valor enviado pelo formulário
       $id_imovel   = $_POST['id_imovel'];
-      $endereco    = $_POST['endereco'];
-      $tipo_imovel = $_POST['tipo_imovel'];
+      $descricao    = $_POST['descricao'];
+      $tipo         = $_POST['tipo'];
       $valor       = $_POST['valor'];
   
       // Prepara a query SQL para inserção
-      $sql = "UPDATE imovel SET endereco = :endereco, tipo_imovel = :tipo_imovel, valor = :valor WHERE id_imovel = :id_imovel";
+      $sql = "UPDATE imovel SET descricao = :descricao, tipo = :tipo, valor = :valor WHERE id_imovel = :id_imovel";
   
       // Preparar a SQL (pdo)
       $stmt = $pdo->prepare($sql);
@@ -20,8 +20,8 @@ if (!empty($_POST)) {
       // Definir/organizar os dados p/ SQL
       $dados = array(
       ':id_imovel' => $id_imovel,
-      ':endereco' => $endereco,
-      ':tipo_imovel' => $tipo_imovel,
+      ':descricao' => $descricao,
+      ':tipo' => $tipo,
       ':valor' => $valor
       );
   

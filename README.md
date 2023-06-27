@@ -66,7 +66,63 @@ and i.id_imovel in (
 <br>
 
 3 - liste os imóveis e a quantidade respectiva de mobílias por imóvel que cada cliente tem. Os clientes devem ter entre 30 e 40 anos e residir no estado de SC.
+```sql
+SELECT
+    imovel.id_imovel,
+    COUNT(mobilia.id_mobilia) AS quantidade_mobilia
+FROM
+    imovel
+INNER JOIN
+    cliente ON cliente.id_cliente = imovel.id_cliente
+INNER JOIN
+    pessoa ON pessoa.id_pessoa = cliente.id_pessoa
+LEFT JOIN
+    mobilia ON mobilia.id_imovel = imovel.id_imovel
+WHERE
+    pessoa.data_nasc BETWEEN '1993-06-26' AND '2003-06-26' -- 30 a 40 anos
+    AND pessoa.estado = 'SC'
+GROUP BY
+    imovel.id_imovel;
+```
 <br>
 
 4 - Informar o top 10 dos valores totais de prejuizo gerado por sinistros, agrupados por imóvel e trazendo as informações como, nome, cpf,
 data de nascimento e telefone da pessoa responsável e o corretor do imóvel.
+```sql
+SELECT
+    imovel.id_imovel,
+    pessoa.nome AS pessoa_responsavel,
+    pessoa.cpf AS cpf_responsavel,
+    pessoa.data_nasc AS data_nascimento_responsavel,
+    pessoa.telefone AS telefone_responsavel,
+    corretor.id_pessoa AS id_corretor,
+    corretor.id_seguradora AS id_seguradora,
+    (SELECT nome FROM seguradora WHERE id_seguradora = corretor.id_seguradora) AS nome_seguradora,
+    (SELECT telefone FROM seguradora WHERE id_seguradora = corretor.id_seguradora) AS telefone_seguradora,
+    SUM(sinistro.valor_prejuizo) AS valor_total_prejuizo
+FROM
+    sinistro
+INNER JOIN
+    imovel ON imovel.id_imovel = sinistro.id_imovel
+INNER JOIN
+    apolice ON apolice.id_imovel = imovel.id_imovel
+INNER JOIN
+    cliente ON cliente.id_cliente = apolice.id_cliente
+INNER JOIN
+    pessoa ON pessoa.id_pessoa = cliente.id_pessoa
+INNER JOIN
+    corretor ON corretor.id_seguradora = imovel.id_seguradora
+        AND corretor.id_pessoa = imovel.id_cliente
+GROUP BY
+    imovel.id_imovel,
+    pessoa.nome,
+    pessoa.cpf,
+    pessoa.data_nasc,
+    pessoa.telefone,
+    corretor.id_pessoa,
+    corretor.id_seguradora
+ORDER BY
+    valor_total_prejuizo DESC
+LIMIT
+    10;
+```

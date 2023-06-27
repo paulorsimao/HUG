@@ -13,3 +13,6 @@ CREATE TABLE seguradora (
     estado VARCHAR(50),
     cep VARCHAR(10)
 );
+
+-- indice para otimização de query
+create index idx_estado_seguradora on seguradora (estado);

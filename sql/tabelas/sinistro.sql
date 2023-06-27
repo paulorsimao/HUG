@@ -7,3 +7,6 @@ CREATE TABLE sinistro (
     valor_prejuizo DECIMAL(15,2) NOT NULL,
     FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
 );
+
+CREATE INDEX idx_fk_sinistro_imovel ON sinistro (id_imovel);
+CREATE INDEX idx_data_sinistro ON sinistro (data_ocorrencia);

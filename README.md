@@ -28,13 +28,15 @@
 <code>[Excel](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.xlsx) ou [Tabela do Github (markdown)](https://github.com/paulorsimao/HUG/tree/main/dicionario_hug.md)</code>
 
 ### Scripts DDL Criação do Database:
-<code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/main/sql)</code>
+* <code>[Ver Scripts](./sql/tabelas/)</code>
+* <code>[Ver Script com todos comandos](./sql/tabelas/)</code>
 
 ### Scripts Popula tabelas:
 Banco de dados utilizado PostgreSql<br>
 <p>Por conta da quantidade de dados, foi utilizado o comando pg_dump para poder popular as tabelas. Para restaurar pode ser usado o comando</p>
-
 <code>psql -d segurosseg -U postgres -f dump_seguro.sql</code>
+
+<code>[Ver Script](./sql/dados/dump_seguro.sql)</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
 <code>[Ver Objetos](./sql/objetos/)</code>
@@ -77,22 +79,17 @@ CREATE INDEX idx_tipo_valor_imovel ON public.imovel (id_imovel, tipo, valor)
 
 3 - liste os imóveis e a quantidade respectiva de mobílias por imóvel que cada cliente tem. Os clientes devem ter entre 30 e 40 anos e residir no estado de SC.
 ```sql
-SELECT
-    imovel.id_imovel,
-    COUNT(mobilia.id_mobilia) AS quantidade_mobilia
-FROM
-    imovel
-INNER JOIN
-    cliente ON cliente.id_cliente = imovel.id_cliente
-INNER JOIN
-    pessoa ON pessoa.id_pessoa = cliente.id_pessoa
-LEFT JOIN
-    mobilia ON mobilia.id_imovel = imovel.id_imovel
-WHERE
-    pessoa.data_nasc BETWEEN '1993-06-26' AND '2003-06-26' -- 30 a 40 anos
-    AND pessoa.estado = 'SC'
-GROUP BY
-    imovel.id_imovel;
+select c.id_cliente, p.nome as nome_cliente, count(distinct i.id_imovel) as quantidade_imoveis, count(m.id_mobilia) as quantidade_mobilia
+from cliente c
+join pessoa p on c.id_pessoa = p.id_pessoa
+join imovel i on c.id_cliente = i.id_cliente
+left join mobilia m on i.id_imovel = m.id_imovel
+where p.data_nasc >= (current_date - interval '40 years')
+    and p.data_nasc <= (current_date - interval '30 years')
+    and p.estado = 'SC'
+group by c.id_cliente, p.nome;
+
+create index idx_pessoa_idade_estado on pessoa(data_nasc, estado)
 ```
 <br>
 

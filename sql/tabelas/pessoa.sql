@@ -13,3 +13,5 @@ CREATE TABLE pessoa (
     estado VARCHAR(50),
     cep VARCHAR(10)
 );
+
+CREATE INDEX idx_pessoa_idade_estado ON pessoa(data_nasc, estado)

@@ -6,3 +6,5 @@ CREATE TABLE Vistoria (
   descricao TEXT NOT NULL,
   FOREIGN KEY (id_imovel) REFERENCES imovel(id_imovel)
 );
+
+CREATE INDEX idx_fk_vistoria_imovel ON vistoria (id_imovel);

@@ -31,11 +31,13 @@
 <code>[Ver Scripts](https://github.com/paulorsimao/HUG/tree/main/sql)</code>
 
 ### Scripts Popula tabelas:
-Banco de dados utilizado SQL Server versão 2022 - Azure.<br>
-<code>1 arquivo SQL por objeto</code>
+Banco de dados utilizado PostgreSql<br>
+<p>Por conta da quantidade de dados, foi utilizado o comando pg_dump para poder popular as tabelas. Para restaurar pode ser usado o comando</p>
+
+<code>psql -d segurosseg -U postgres -f dump_seguro.sql</code>
 
 ### Objetos de BD (stored procedure, triggers e functions):
-<code>[Ver Objetos](https://github.com/paulorsimao/HUG/tree/main/sql/objects)</code>
+<code>[Ver Objetos](./sql/objetos/)</code>
   
 ### Código do sistema:
 JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>
@@ -50,6 +52,12 @@ JavaScript, PHP (Versão 7), PostegresSQL (Versão 14)<br>
   where a.data_fim between current_date and (current_date + interval '6 months')
   and s.estado in ('SP', 'RS', 'PR')
   group by s.estado;
+
+  /* index na data de finalização da apolice para poder filtrar por periodo de forma indexada */
+  CREATE INDEX idx_fim_apolice ON public.apolice (data_fim)
+
+  /* index para filtrar por estado da seguradora. obs: o postgres não utiliza este index pois a tabela é muito pequena */
+  create index idx_estado_seguradora on public.seguradora (estado)
 ```
 <br>
 
@@ -62,6 +70,8 @@ and i.valor > 500000
 and i.id_imovel in (
 	select a.id_imovel from apolice a where extract (month from a.data_inicio) = extract(month from current_date)
 )
+
+CREATE INDEX idx_tipo_valor_imovel ON public.imovel (id_imovel, tipo, valor)
 ```
 <br>
 

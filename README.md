@@ -97,42 +97,26 @@ GROUP BY
 <br>
 
 4 - Informar o top 10 dos valores totais de prejuizo gerado por sinistros, agrupados por imóvel e trazendo as informações como, nome, cpf,
-data de nascimento e telefone da pessoa responsável e o corretor do imóvel.
+data de nascimento e telefone da pessoa responsável.
 ```sql
-SELECT
-    imovel.id_imovel,
-    pessoa.nome AS pessoa_responsavel,
-    pessoa.cpf AS cpf_responsavel,
-    pessoa.data_nasc AS data_nascimento_responsavel,
-    pessoa.telefone AS telefone_responsavel,
-    corretor.id_pessoa AS id_corretor,
-    corretor.id_seguradora AS id_seguradora,
-    (SELECT nome FROM seguradora WHERE id_seguradora = corretor.id_seguradora) AS nome_seguradora,
-    (SELECT telefone FROM seguradora WHERE id_seguradora = corretor.id_seguradora) AS telefone_seguradora,
-    SUM(sinistro.valor_prejuizo) AS valor_total_prejuizo
-FROM
-    sinistro
-INNER JOIN
-    imovel ON imovel.id_imovel = sinistro.id_imovel
-INNER JOIN
-    apolice ON apolice.id_imovel = imovel.id_imovel
-INNER JOIN
-    cliente ON cliente.id_cliente = apolice.id_cliente
-INNER JOIN
-    pessoa ON pessoa.id_pessoa = cliente.id_pessoa
-INNER JOIN
-    corretor ON corretor.id_seguradora = imovel.id_seguradora
-        AND corretor.id_pessoa = imovel.id_cliente
-GROUP BY
-    imovel.id_imovel,
-    pessoa.nome,
-    pessoa.cpf,
-    pessoa.data_nasc,
-    pessoa.telefone,
-    corretor.id_pessoa,
-    corretor.id_seguradora
-ORDER BY
-    valor_total_prejuizo DESC
-LIMIT
-    10;
+/* para esta query não foi necessário criação de indices adicionais
+ * pois apenas usando cte para isolar os 10 maiores valores
+ * o banco de dados já passou a utilizar todos os indices nos joins
+ * assim executando apenas 1 seq_scan para a tabela de sinistros
+ * */
+with top_sinistros as (
+	select 
+		s.id_imovel,
+		sum(s.valor_prejuizo) as soma,
+		rank() over (order by sum(s.valor_prejuizo) desc) as rank_sinistro
+	from sinistro s
+	group by s.id_imovel 
+	limit 10
+) select 
+	ts.soma, p.nome, p.cpf, p.telefone, i.id_imovel
+from top_sinistros ts
+left join imovel i on i.id_imovel = ts.id_imovel 
+left join cliente c on c.id_cliente = i.id_cliente 
+left join pessoa p on p.id_pessoa = c.id_pessoa
+order by ts.rank_sinistro asc
 ```

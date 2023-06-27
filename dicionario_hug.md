@@ -17,6 +17,7 @@
 |cep| |varchar(10)|8 até 10|NULL| | |Cep da rua|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|seguradora| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados das seguradoras| | | | | | |
 |Atributos| | | | | | | |
@@ -35,6 +36,7 @@
 |cep| |varchar(10)|8 até 10|NULL| | |Cep da rua|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|Cliente| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados dos clientes| | | | | | |
 |Atributos| | | | | | | |
@@ -43,12 +45,14 @@
 |id_pessoa| |int|1 até 10000|NOT NULL| |X|Código de identificador da pessoa|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|Corretor| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados dos corretores| | | | | | |
 |Atributos| | | | | | | |
 |Nome da Coluna| |Tipo do Dado|Valor min e max|Nulidade|PK|FK|Descrição|
 |id_seguradora| |int|1 até 10000|NOT NULL| |X|Código de identificador da seguradora|
 |id_pessoa| |int|1 até 10000|NOT NULL| |X|Código de identificador da pessoa|
+| | | | | | | | |
 | | | | | | | | |
 | | | | | | | | |
 |Tabela|Imóvel| | | | | | |
@@ -69,6 +73,7 @@
 |cep| |varchar(10)|8 até 10|NULL| | |Cep da rua|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|mobilia| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados das mobílias| | | | | | |
 |Atributos| | | | | | | |
@@ -79,16 +84,19 @@
 |valor| |decimal(10,2)|1 até 9999999|NOT NULL| | |Valor da mobília|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|Apólice| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados das apolices | | | | | | |
 |Atributos| | | | | | | |
 |Nome da Coluna| |Tipo do Dado|Valor min e max|Nulidade|PK|FK|Descrição|
 |id_apolice| |serial|1 até 10000|NOT NULL|X| |Código de identificador da apólice|
 |id_imovel| |int|1 até 10000|NOT NULL| |X|Código de identificador do imóvel|
-|id_cliente| |int|1 até 10000|NOT NULL| |X|Código de identificador do cliente |
+|id_corretor_pessoa| |int|1 até 10000|NOT NULL| |X|Código de identificador do corretor/pessoa|
+|id_corretor_seguradora| |int|1 até 10000|NOT NULL| |X|Código de identificador do corretor/seguradora |
 |data_inicio| |date|8 até 10|NOT NULL| | |Data de inicio da vigência |
 |data_fim| |date|8 até 10|NOT NULL| | |Data do fiim da vigência |
 |valor_cobertura| |decimal(10,2)|1 até 9999999|NOT NULL| | |Valor da cobertura da vigência|
+| | | | | | | | |
 | | | | | | | | |
 | | | | | | | | |
 |Tabela|sinistro| | | | | | |
@@ -102,6 +110,7 @@
 |valor_prejuizo| |decimal(15,2)|1 até 9999999|NOT NULL| | |Valor do prejuízo da ocorrencia|
 | | | | | | | | |
 | | | | | | | | |
+| | | | | | | | |
 |Tabela|vistoria| | | | | | |
 |Descrição|Tabela responsável por armazenar os dados das vistorias| | | | | | |
 |Atributos| | | | | | | |
@@ -110,6 +119,7 @@
 |id_imovel| |int|1 até 10000|NOT NULL| |X|Código de identificador do imóvel|
 |data_vistoria| |date|8 até 10|NOT NULL| | |Data da vistoria |
 |descricao| |varchar(500)|20 até 500|NOT NULL| | |Descrição da vistoria|
+| | | | | | | | |
 | | | | | | | | |
 | | | | | | | | |
 |Tabela|historico| | | | | | |

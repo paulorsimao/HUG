@@ -9,7 +9,7 @@
 
 ### Integrantes:
 * [Arthur de Luca Honorato](https://github.com/arthurdelucahonorato)
-* [Bruna Pacheco Peruch](https://github.com/brunapperch)
+* [Bruna Pacheco Peruch](https://github.com/brupperch)
 * [Guilherme Brito Pizzollo](https://github.com/guilhermebp030504)
 * [Guilherme Machado Darabas](https://github.com/gmdarabas)
 * [Paulo Roberto Simão](https://github.com/paulorsimao)

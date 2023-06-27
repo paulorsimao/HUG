@@ -2,7 +2,7 @@
 # HUG - House Unforeseens Guardian
 
 <div align="center">
-  <img src="public/logo.jpg" alt="Logo">
+  <img src="imagens/logo.jpg" alt="Logo">
 </div>
 
 ### Grupo A

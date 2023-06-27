@@ -20,7 +20,7 @@
 ### Modelo Físico:
 <code>[Arquivo Fonte](https://dbdiagram.io/d/6488f767722eb77494e9558d)</code><br>
 <div align="center">
-  <img src="public/Modelo.png" alt="Modelo">
+  <img src="imagens/Modelo.png" alt="Modelo">
 </div>
 
   
